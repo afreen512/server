@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "frontend": "cd client && npm run dev",
-    "dev": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
