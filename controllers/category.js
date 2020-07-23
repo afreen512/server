@@ -24,7 +24,7 @@ exports.create = (req, res) => {
     let category = new Category({ name, content, slug });
 
     const params = {
-        Bucket: 'anabucket',
+        Bucket: 'anabuckets',
         Key: `category/${uuidv4()}.${type}`,
         Body: base64Data,
         ACL: 'public-read',
@@ -114,7 +114,7 @@ exports.update = (req, res) => {
         if (image) {
             // remove the existing image from s3 before uploading new/updated one
             const deleteParams = {
-                Bucket: 'anabucket',
+                Bucket: 'anabuckets',
                 Key: `${updated.image.key}`
             };
 
@@ -125,7 +125,7 @@ exports.update = (req, res) => {
 
             // handle upload image
             const params = {
-                Bucket: 'anabucket',
+                Bucket: 'anabuckets',
                 Key: `category/${uuidv4()}.${type}`,
                 Body: base64Data,
                 ACL: 'public-read',
@@ -168,7 +168,7 @@ exports.remove = (req, res) => {
         }
         // remove the existing image from s3 before uploading new/updated one
         const deleteParams = {
-            Bucket: 'anabucket',
+            Bucket: 'anabuckets',
             Key: `${data.image.key}`
         };
 
